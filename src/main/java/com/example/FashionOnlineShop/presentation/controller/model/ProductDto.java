@@ -6,7 +6,7 @@ import lombok.Builder;
 import org.hibernate.validator.constraints.Length;
 
 @Builder
-public record ProductsDto(
+public record ProductDto(
 
         @NotNull
         @NotBlank
@@ -20,8 +20,7 @@ public record ProductsDto(
 
         Integer quantity,
 
-        //ToDo: change Integer to String
-        Integer unitPrice,
+        String unitPrice,
 
 
         String productSize,

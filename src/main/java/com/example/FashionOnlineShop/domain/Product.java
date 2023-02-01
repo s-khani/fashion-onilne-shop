@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -20,30 +21,30 @@ public class Product {
 
     public enum ProductSize{
         SMALL,
+        MEDIUM,
         LARGE,
-        XLARGE,
-        MEDIUM
+        XLARGE
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "Subtitle")
+    @Column(name = "subtitle")
     private String subtitle;
 
-    @Column(name = "Description")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "Quantity")
+    @Column(name = "quantity")
     private Integer quantity;
 
-    //ToDo:change Ineger to BigDecimal
+    //ToDo:change Integer to BigDecimal
     @Column(name = "unit_price")
-    private Integer unitPrice;
+    private BigDecimal unitPrice;
 
     @Column(name = "product_size")
     @Enumerated(value = EnumType.STRING)

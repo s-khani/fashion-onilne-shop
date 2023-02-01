@@ -1,10 +1,7 @@
 package com.example.FashionOnlineShop.domain;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "Product_Image")
 public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +18,13 @@ public class ProductImage {
 
     Long productId;
 
+    @Column(name = "image_title")
     String imageTitle;
 
+    @Column(name = "enabled")
     Boolean enabled;
+
+    @Column(name = "image_url")
+    String imageUrl;
 
 }
