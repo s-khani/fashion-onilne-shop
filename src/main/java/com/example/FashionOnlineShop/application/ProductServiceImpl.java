@@ -1,8 +1,9 @@
 package com.example.FashionOnlineShop.application;
 
-import com.example.FashionOnlineShop.domain.Product;
+
 import com.example.FashionOnlineShop.infrastructure.repository.ProductRepository;
 import com.example.FashionOnlineShop.presentation.controller.model.ProductDto;
+import com.example.FashionOnlineShop.presentation.controller.model.ProductImageDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,15 @@ public class ProductServiceImpl implements ProductService {
         return entities.stream()
                 .map(product -> productConverter.fromEntityToDto(product))
                 .toList();
+
+    }
+
+    @Override
+    public ProductImageDto getProductById(Long id) {
+
+        return null;
+
+
 
     }
 }
