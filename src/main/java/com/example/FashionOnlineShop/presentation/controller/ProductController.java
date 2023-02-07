@@ -7,9 +7,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
+
 import java.util.List;
 
 @Slf4j
@@ -34,4 +33,11 @@ public class ProductController {
       return ResponseEntity.ok(products);
 
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getProductById(@PathVariable Long id){
+        var productImage = productService.getProductById(id);
+        return ResponseEntity.ok(productImage);
+    }
+
 }

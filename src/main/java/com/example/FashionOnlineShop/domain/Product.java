@@ -10,6 +10,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -60,6 +63,9 @@ public class Product {
     @UpdateTimestamp
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
+
+    @OneToMany(mappedBy = "product")
+    Set<ProductImage> images;
 
     @Version
     @Column

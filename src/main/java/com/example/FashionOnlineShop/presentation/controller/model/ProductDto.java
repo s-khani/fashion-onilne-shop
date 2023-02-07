@@ -1,9 +1,13 @@
 package com.example.FashionOnlineShop.presentation.controller.model;
 
+import com.example.FashionOnlineShop.domain.ProductImage;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import org.hibernate.validator.constraints.Length;
+
+
+import java.util.Set;
 
 @Builder
 public record ProductDto(
@@ -25,7 +29,9 @@ public record ProductDto(
 
         String productSize,
 
-        Boolean isAvailability
+        Boolean isAvailability,
+
+        Set<ProductImage> images
 
 
 ) {

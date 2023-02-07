@@ -3,10 +3,12 @@ package com.example.FashionOnlineShop.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -16,8 +18,6 @@ public class ProductImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    Long productId;
-
     @Column(name = "image_title")
     String imageTitle;
 
@@ -26,5 +26,9 @@ public class ProductImage {
 
     @Column(name = "image_url")
     String imageUrl;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id")
+    private Product product;
 
 }

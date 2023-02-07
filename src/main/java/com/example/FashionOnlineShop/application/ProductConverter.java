@@ -1,7 +1,7 @@
 package com.example.FashionOnlineShop.application;
 
-import com.example.FashionOnlineShop.presentation.controller.model.ProductDto;
 import com.example.FashionOnlineShop.domain.Product;
+import com.example.FashionOnlineShop.presentation.controller.model.ProductDto;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -20,11 +20,13 @@ public class ProductConverter implements Converter<Product, ProductDto> {
                 .unitPrice(product.getUnitPrice().toString())
                 .productSize(product.getProductSize().toString())
                 .isAvailability(product.getIsAvailability())
+                .images(product.getImages())
                 .build();
     }
 
     @Override
     public Product fromDtoToEntity(ProductDto dto) {
+
 
         return Product.builder()
                 .name(dto.name())
