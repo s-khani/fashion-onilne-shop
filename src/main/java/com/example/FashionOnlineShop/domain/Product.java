@@ -66,8 +66,7 @@ public class Product {
 
     @OneToMany
     @JoinColumn(name = "product_id")
-
-    Set<ProductImage> images;
+    private Set<ProductImage> images;
 
     @Version
     @Column
