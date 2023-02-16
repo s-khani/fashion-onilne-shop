@@ -2,15 +2,18 @@ package com.example.FashionOnlineShop.application;
 
 
 import com.example.FashionOnlineShop.presentation.controller.model.ProductDto;
-import com.example.FashionOnlineShop.presentation.controller.model.ProductImageDto;
 
 import java.util.List;
 
 public interface ProductService {
 
-    void addProduct(ProductDto dto);
+    ProductDto addProduct(ProductDto dto);
 
     List<ProductDto> getAllProducts();
 
-    ProductImageDto getProductById(Long id);
+    ProductDto getProductById(Long id);
+
+    void deleteProductById(Long id);
+
+    ProductDto updateProductById(Long id, ProductDto requestDto);
 }

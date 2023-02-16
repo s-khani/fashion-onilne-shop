@@ -27,8 +27,8 @@ public class ProductImage {
     @Column(name = "image_url")
     String imageUrl;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id")
+    @ManyToOne
+    @JoinColumn(name = "product_id",insertable = false,updatable = false)
     private Product product;
 
 }

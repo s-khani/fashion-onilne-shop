@@ -45,7 +45,7 @@ public class Product {
     @Column(name = "quantity")
     private Integer quantity;
 
-    //ToDo:change Integer to BigDecimal
+
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
 
@@ -64,7 +64,9 @@ public class Product {
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany
+    @JoinColumn(name = "product_id")
+
     Set<ProductImage> images;
 
     @Version

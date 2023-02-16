@@ -5,6 +5,8 @@ import com.example.FashionOnlineShop.presentation.controller.model.ProductDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +24,8 @@ public class ProductController {
 
     @PostMapping()
     public ResponseEntity<?> addProduct(@RequestBody @Valid ProductDto request) {
-        productService.addProduct(request);
-        return ResponseEntity.ok("OK");
+        var product = productService.addProduct(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(product);
 
     }
 
@@ -36,8 +38,19 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getProductById(@PathVariable Long id){
-        var productImage = productService.getProductById(id);
-        return ResponseEntity.ok(productImage);
+        var product = productService.getProductById(id);
+        return ResponseEntity.ok(product);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteProductById(@PathVariable Long id){
+        productService.deleteProductById(id);
+        return ResponseEntity.noContent().build();
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateProductById(@PathVariable Long id,ProductDto requestDto){
+        var productDto = productService.updateProductById(id,requestDto);
+        return ResponseEntity.ok(productDto);
     }
 
 }

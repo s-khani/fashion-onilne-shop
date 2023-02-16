@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.UniqueElements;
 
 
 import java.util.Set;
@@ -15,6 +16,7 @@ public record ProductDto(
         @NotNull
         @NotBlank
         @Length(max = 200)
+
         String name,
 
         @Length(max = 200)

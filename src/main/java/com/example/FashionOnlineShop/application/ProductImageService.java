@@ -8,4 +8,6 @@ public interface ProductImageService {
     void addProductImage(ProductImageDto dto);
 
     List<ProductImageDto> findAllImages();
+
+    ProductImageDto getProductImageById(Long id);
 }
